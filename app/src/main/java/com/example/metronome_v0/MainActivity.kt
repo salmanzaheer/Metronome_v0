@@ -31,21 +31,25 @@ class MainActivity : Activity() {
         txtTempo = findViewById(R.id.txt_tempo)
 
 
-        txtTempo.setText(bpm)
+        txtTempo.text = bpm.toString()
 
         //increase tempo
         btnAdd.setOnClickListener {
-            addTempo()
-            txtTempo.setText(bpm)
+            if (bpm in 21..219) {
+                bpm++
+            }
+            txtTempo.text = bpm.toString()
         }
 
         btnSub.setOnClickListener {
-            subTempo()
-            txtTempo.setText(bpm)
+            if (bpm in 21..219) {
+                bpm--
+            }
+            txtTempo.text = bpm.toString()
         }
 
     }
-
+/*
     private fun addTempo() {
         if (bpm in 21..219) {
             bpm += 1
@@ -56,5 +60,5 @@ class MainActivity : Activity() {
         if (bpm in 21..219) {
             bpm -= 1
         }
-    }
+    } */
 }
